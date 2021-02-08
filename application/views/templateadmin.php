@@ -52,6 +52,9 @@ $this->load->view('templateadmin/head.php');
 		<?php
 		$this->load->view('templateadmin/footer.php');
 		?>
+		<?php
+		$this->load->view('templateadmin/js-main.php');
+		?>
 </body>
 
 </html>

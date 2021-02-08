@@ -37,7 +37,7 @@
 		Swal.fire({
 		  icon: 'error',
 		  title: 'Gagal',
-		  text: 'Tidak Ada data yang digenerate',
+		  text: 'Generate Gagal',
 		});
 	}
 

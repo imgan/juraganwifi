@@ -5,7 +5,7 @@
 				<form class="form-horizontal" role="form" id="formTambah">
 					<div class="card card-info">
 						<div class="modal-header">
-							<h4 class="modal-title">Generate Tagihan</h4>
+							<h4 class="modal-title">Blast Tagihan Email</h4>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -46,11 +46,11 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h3 class="card-title">History Generate Tagihan</h3>
+			<h3 class="card-title">Daftar Invoice</h3>
 		</div>
 		<br>
 		<div class="col-sm-2">
-			<button href="#my-modal" type="button" role="button" data-toggle="modal" class="btn btn-block btn-primary"><a class="ace-icon fa fa-cogs bigger-120"></a> Generate Tagihan</button>
+			<button href="#my-modal" type="button" role="button" data-toggle="modal" class="btn btn-block btn-primary"><a class="ace-icon fa fa-envelope bigger-120"></a> Blast Tagihan Email</button>
 		</div>
 		<br>
 		<div class="card-body p-0">
@@ -61,16 +61,25 @@
 							#
 						</th>
 						<th class="text-center" >
-							Bulan
+							Nama Customer
 						</th>
 						<th class="text-center">
-							Tahun
+							No Telp 
 						</th>
 						<th  class="text-center">
-							Generate Time
+							Total Tagihan
+						</th>
+						<th class="text-center">
+							Status
 						</th>
 						<th  class="text-center">
-							Generate By
+							Periode
+						</th>
+						<th  class="text-center">
+							Jatuh Tempo
+						</th>
+						<th  class="text-center">
+							Action
 						</th>
 					</tr>
 				</thead>
@@ -86,53 +95,24 @@
 <script type="text/javascript">
 	if ($("#formTambah").length > 0) {
 		$("#formTambah").validate({
-			errorClass: "my-error-class",
-			validClass: "my-valid-class",
-			rules: {
-				ktp: {
-					required: true
-				},
-
-				nama: {
-					required: true
-				},
-
-				telp: {
-					required: true
-				},
-			},
-			messages: {
-
-				ktp: {
-					required: "No KTP harus diisi!"
-				},
-
-				nama: {
-					required: "Nama harus diisi!"
-				},
-
-				telp: {
-					required: "Telepone harus diisi!"
-				},
-			},
 			submitHandler: function(form) {
 				$('#btn_simpan').html('Sending..');
 				$.ajax({
-					url: "<?php echo base_url('administrator/tagihan_log/generate') ?>",
+					url: "<?php echo base_url('administrator/blast_email/generateTagihan') ?>",
 					type: "POST",
 					data: $('#formTambah').serialize(),
 					dataType: "json",
 					success: function(response) {
 						$('#btn_simpan').html('<i class="ace-icon fa fa-save"></i>' +
-							'Simpan');
-						if (response == true) {
-							document.getElementById("formTambah").reset();
-							swalInputSuccess();
-							show_data();
-							$('#my-modal').modal('hide');
-						} else {
-							swalInputFailed();
-						}
+                            'Simpan');
+                        if (response == true) {
+                            document.getElementById("formTambah").reset();
+                            swalGenerateSuccess();
+                            show_data();
+                            $('#my-modal').modal('hide');
+                        } else {
+                            swalGenerateFailed();
+                        } 
 					}
 				});
 			}
@@ -177,7 +157,7 @@
 	function show_data() {
 		$.ajax({
 			type: 'POST',
-			url: '<?php echo site_url('administrator/tagihan_log/tampil') ?>',
+			url: '<?php echo site_url('administrator/blast_email/tampil') ?>',
 			async: true,
 			dataType: 'json',
 			success: function(data) {
@@ -185,12 +165,28 @@
 				var i = 0;
 				var no = 1;
 				for (i = 0; i < data.length; i++) {
+					var status = '';
+					if (data[i].status == 1) {
+						status = '<td class="project-state"><span class="badge badge-success">Lunas</span></td>'
+					} else {
+						status = '<td class="project-state"><span class="badge badge-warning">Menunggu Pembayaran</span></td>'
+					}
 					html += '<tr>' +
 						'<td class="text-left">' + no + '</td>' +
-						'<td class="text-left">' + data[i].bulan + '</td>' +
-						'<td class="text-right">' + data[i].tahun + '</td>' +
-						'<td class="text-right">' + data[i].createdAt + '</td>' +
-						'<td class="text-right">' + data[i].createdBy + '</td>' +
+						'<td class="text-left">' + data[i].name + '</td>' +
+						'<td class="text-right">' + data[i].no_wa + '</td>' +
+						'<td class="text-right">' + ConvertFormatRupiah(data[i].total_tagihan, 'Rp.') + '</td>' +
+						status +
+						'<td class="text-right">' + data[i].month +'/'+ data[i].year+'</td>' +
+						'<td class="text-right">' +data[i].due_date + '</td>' +
+						'<td class="project-actions text-center">' +
+						'   <button  class="btn btn-primary btn-sm item_edit"  data-id="' + data[i].id + '">' +
+						'      <i class="fas fa-folder"> </i>  Edit </a>' +
+						'</button> &nbsp' +
+						'   <button  class="btn btn-danger btn-sm item_hapus"  data-id="' + data[i].id + '">' +
+						'      <i class="fas fa-trash"> </i>  Hapus </a>' +
+						'</button> ' +
+						'</td>' +
 						'</tr>';
 					no++;
 				}
@@ -220,7 +216,6 @@
 			"paging": true,
 		});
 	});
-
 
 	function ConvertFormatRupiah(angka, prefix) {
 		var number_string = angka.replace(/[^,\d]/g, '').toString(),

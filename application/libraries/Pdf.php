@@ -12,6 +12,7 @@
  * @link        https://github.com/ardianta/codeigniter-dompdf
  */
 use Dompdf\Dompdf;
+use Dompdf\Options;
 class Pdf extends Dompdf{
     /**
      * PDF filename
@@ -41,11 +42,13 @@ class Pdf extends Dompdf{
      * @return    void
      */
     public function load_view($view, $data = array()){
-        $html = $this->ci()->load->view($view, $data, TRUE);
-        $this->load_html($html);
-        // Render the PDF
-        $this->render();
+		$html = $this->ci()->load->view($view, $data, TRUE);
+		// Render the PDF
+		$this->load_html($html);
+		$this->render();
+		$output = $this->output();
+	 	file_put_contents(APPPATH . "/public/".$data['invoice'].".pdf", $output);
             // Output the generated PDF to Browser
-               $this->stream($this->filename, array("Attachment" => false));
+            //    $this->stream($this->filename, array("Attachment" => false));
     }
 }
