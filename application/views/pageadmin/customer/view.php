@@ -1,6 +1,6 @@
 <section class="content">
 	<div id="my-modal" class="modal fade" tabindex="-1">
-		<div class="modal-dialog modal-lg">
+		<div class="modal-dialog modal-xl">
 			<div class="modal-content">
 				<form class="form-horizontal" role="form" id="formTambah">
 					<div class="card card-info">
@@ -10,40 +10,283 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<div class="card-body">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
-								</div>
-								<input required type="text" id="nama" name="nama" class="form-control" placeholder="Nama Customer">
-							</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="card-body">
+									<b>PROFIL</b>
+									<hr>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-user"></i></span>
+										</div>
+										<input required type="text" id="nama" name="nama" class="form-control" placeholder="Nama Customer">
+									</div>
 
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-address-card"></i></span>
-								</div>
-								<input required type="number" id="ktp" name="ktp" class="form-control" placeholder="NO KTP">
-							</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+										</div>
+										<input required type="number" id="ktp" name="ktp" class="form-control" placeholder="NO KTP">
+									</div>
 
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-envelope"></i></span>
-								</div>
-								<input type="email" id="email" name="email" class="form-control" placeholder="Email">
-							</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+										</div>
+										<input type="email" id="email" name="email" class="form-control" placeholder="Email">
+									</div>
 
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
-								</div>
-								<input required type="number" id="telp" name="telp" class="form-control" placeholder="No Telepon">
-							</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-phone"></i></span>
+										</div>
+										<input required type="number" id="telp" name="telp" class="form-control" placeholder="No Telepon">
+									</div>
 
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-home"></i></span>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-home"></i></span>
+										</div>
+										<textarea type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat"></textarea>
+									</div>
+									<hr>
+									<b>PERANGKAT</b>
+									<hr>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-plug"></i></span>
+										</div>
+										<input type="number" id="panjangkabel" name="panjangkabel" class="form-control" placeholder="Panjang Kabel">
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-file-code"></i></span>
+										</div>
+										<textarea type="text" id="odp" name="odp" class="form-control" placeholder="Nomor Port ODP"></textarea>
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-file-code"></i></span>
+										</div>
+										<input  type="number" id="olt" name="olt" class="form-control" placeholder="Nomor Port OLT">
+									</div>
+
+									
+									<div class="form-group">
+										<label>Jenis Perangkat</label>
+										<select class="form-control select2" style="width: 100%;" name="jenisperangkat" id="jenisperangkat">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Merek Perangkat</label>
+										<select class="form-control select2" style="width: 100%;" name="merekperangkat" id="merekperangkat">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-barcode"></i></span>
+										</div>
+										<input type="text" id="serialnumber" name="serialnumber" class="form-control" placeholder="Serial Number">
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-phone"></i></span>
+										</div>
+										<input type="text" id="macaddress" name="macaddress" class="form-control" placeholder="Mac Address">
+									</div>
+
+									<div class="form-group">
+										<label>Tanggal Aktivasi</label>
+										<input type="date" id="tglregistrasi" name="tglregistrasi" class="form-control" placeholder="Tanggal Registrasi">
+									</div>
 								</div>
-								<textarea type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat"></textarea>
+							</div>
+							<div class="col-md-6">
+								<div class="card-body">
+									<b>LAYANAN</b>
+									<hr>
+									<div class="form-group">
+										<label>Jenis Layanan</label>
+										<select class="form-control select2" style="width: 100%;" name="jenislayanan" id="jenislayanan">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Media Koneksi</label>
+										<select class="form-control select2" style="width: 100%;" name="mediakoneksi" id="mediakoneksi">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-user"></i></span>
+										</div>
+										<input type="text" id="usernamepoe" name="usernamepoe" class="form-control" placeholder="Username PPOE">
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-key"></i></span>
+										</div>
+										<input type="text" id="p_ppoe" name="p_ppoe" class="form-control" placeholder="Password PPOE">
+									</div>
+
+									
+									<div class="form-group">
+										<label>Jenis IP Address</label>
+										<select class="form-control select2" style="width: 100%;" name="jenisipaddress" id="jenisipaddress">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Wilayah</label>
+										<select class="form-control select2" style="width: 100%;" name="wilayah" id="wilayah">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-file-code"></i></span>
+										</div>
+										<input type="text" id="odc" name="odc" class="form-control" placeholder="Kode ODC">
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-file-code"></i></span>
+										</div>
+										<input type="text" id="odp" name="odp" class="form-control" placeholder="Kode ODP">
+									</div>
+									<hr>
+									<b>ADMINISTRASI</b>
+									<hr>
+									<div class="form-group">
+										<label>Tanggal Registrasi</label>
+										<input type="date" id="tglregistrasi" name="tglregistrasi" class="form-control" >
+									</div>
+									<div class="form-group">
+										<label>Tanggal Aktivasi</label>
+										<input type="date" id="tglaktivasi" name="tglaktivasi" class="form-control" placeholder="Tanggal Aktivasi">
+									</div>
+
+									<div class="form-group">
+										<label>Jenis Tempat</label>
+										<select class="form-control select2" style="width: 100%;" name="jenistempat" id="jenistempat">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Status Kepemilikan Tempat</label>
+										<select class="form-control select2" style="width: 100%;" id="kepemilikantempat" name="kepemilikantempat" >
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									
+									<div class="form-group">
+										<label>Status Kepemilikan Perangkat</label>
+										<select class="form-control select2" style="width: 100%;">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Nama Teknisi</label>
+										<select class="form-control select2" style="width: 100%;">
+											<option selected="selected">-- Pilih --</option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label>Minimal</label>
+										<select class="form-control select2" style="width: 100%;">
+											<option selected="selected">-- Pilih -- </option>
+											<option>Alaska</option>
+											<option>California</option>
+											<option>Delaware</option>
+											<option>Tennessee</option>
+											<option>Texas</option>
+											<option>Washington</option>
+										</select>
+									</div>
+
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fas fa-home"></i></span>
+										</div>
+										<textarea type="text" id="alamat" name="alamat" class="form-control" placeholder="Ketarangan"></textarea>
+									</div>
+								</div>
 							</div>
 						</div>
 						<!-- /.card-body -->
@@ -81,10 +324,10 @@
 						<th style="width: 1%">
 							#
 						</th>
-						<th style="width: 1%" class="text-center" >
+						<th style="width: 1%" class="text-center">
 							No Pelanggan
 						</th>
-						<th style="width: 20%"  class="text-center">
+						<th style="width: 20%" class="text-center">
 							Nama
 						</th>
 						<th style="width: 30%" class="text-center">
