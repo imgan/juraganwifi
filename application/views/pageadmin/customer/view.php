@@ -503,6 +503,7 @@
 
 	$(document).ready(function() {
 		show_data();
+		$('.select2').select2();
 		$('#table_id').DataTable({
 			"searching": true,
 			"ordering": true,

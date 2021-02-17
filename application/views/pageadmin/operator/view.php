@@ -18,6 +18,16 @@
 								<input required type="text" id="nama" name="nama" class="form-control" placeholder="Nama Operator">
 							</div>
 
+							<div class="form-group">
+								<label>Wilayah / Regional</label>
+								<select class="form-control select2" style="width: 100%;" name="wilayah" id="wilayah">
+									<option selected="selected">-- Pilih --</option>
+									<?php foreach ($mywilayah as $value) { ?>
+										<option value=<?= $value['id'] ?>><?= $value['nama'] ?></option>
+									<?php } ?>
+								</select>
+							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-cog"></i></span>
@@ -65,7 +75,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"></i></span>
 								</div>
-								<input required type="hidden" id="e_id" name="e_id" >
+								<input required type="hidden" id="e_id" name="e_id">
 								<input required type="text" id="e_nama" name="e_nama" class="form-control" placeholder="Nama Operator">
 							</div>
 
@@ -195,7 +205,7 @@
 							show_data();
 							$('#modalTambah').modal('hide');
 						} else if (response == 401) {
-                            swalIdDouble();
+							swalIdDouble();
 						} else {
 							swalInputFailed("Data Duplicat");
 						}
@@ -309,10 +319,10 @@
 	});
 
 	if ($("#formEdit").length > 0) {
-        $("#formEdit").validate({
-            errorClass: "my-error-class",
-            validClass: "my-valid-class",
-            rules: {
+		$("#formEdit").validate({
+			errorClass: "my-error-class",
+			validClass: "my-valid-class",
+			rules: {
 				e_nama: {
 					required: true
 				},
@@ -324,8 +334,8 @@
 				e_alamat: {
 					required: true
 				},
-            },
-            messages: {
+			},
+			messages: {
 				e_nama: {
 					required: "Nama Operator harus diisi!"
 				},
@@ -338,32 +348,32 @@
 					required: "Alamat harus diisi!"
 				},
 
-            },
-            submitHandler: function(form) {
-                $('#btn_edit').html('Sending..');
-                $.ajax({
-                    url: "<?php echo base_url('administrator/operator/update') ?>",
-                    type: "POST",
-                    data: $('#formEdit').serialize(),
-                    dataType: "json",
-                    success: function(response) {
-                        $('#btn_edit').html('<i class="ace-icon fa fa-save"></i>' +
-                            'Ubah');
-                        if (response == true) {
-                            document.getElementById("formEdit").reset();
-                            swalEditSuccess();
-                            show_data();
-                            $('#modalEdit').modal('hide');
-                        } else if (response == 401) {
-                            swalIdDouble();
-                        } else {
-                            swalEditFailed();
-                        }
-                    }
-                });
-            }
-        })
-    }
+			},
+			submitHandler: function(form) {
+				$('#btn_edit').html('Sending..');
+				$.ajax({
+					url: "<?php echo base_url('administrator/operator/update') ?>",
+					type: "POST",
+					data: $('#formEdit').serialize(),
+					dataType: "json",
+					success: function(response) {
+						$('#btn_edit').html('<i class="ace-icon fa fa-save"></i>' +
+							'Ubah');
+						if (response == true) {
+							document.getElementById("formEdit").reset();
+							swalEditSuccess();
+							show_data();
+							$('#modalEdit').modal('hide');
+						} else if (response == 401) {
+							swalIdDouble();
+						} else {
+							swalEditFailed();
+						}
+					}
+				});
+			}
+		})
+	}
 
 	$(document).ready(function() {
 		show_data();

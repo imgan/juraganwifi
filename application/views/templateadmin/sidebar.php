@@ -89,51 +89,21 @@
   					</a>
   					<ul class="nav nav-treeview">
   						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/operator'; ?>" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/agama'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Operator</p>
+  								<p>Master Agama</p>
   							</a>
   						</li>
   						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/media_koneksi'; ?>" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/bank'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Media Koneksi</p>
+  								<p>Master Bank</p>
   							</a>
   						</li>
   						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/jenis_perangkat'; ?>" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/jenis_identitas'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Jenis Perangkat</p>
-  							</a>
-  						</li>
-  						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/merek_perangkat'; ?>" class="nav-link">
-  								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Merek Perangkat</p>
-  							</a>
-  						</li>
-  						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/jenis_pelanggan'; ?>" class="nav-link">
-  								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Jenis Pelanggan</p>
-  							</a>
-  						</li>
-  						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/jenis_tempat'; ?>" class="nav-link">
-  								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Jenis Tempat</p>
-  							</a>
-  						</li>
-  						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/pendidikan_terakhir'; ?>" class="nav-link">
-  								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Pendidikan</p>
-  							</a>
-  						</li>
-  						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/jenis_kepemilikan'; ?>" class="nav-link">
-  								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Jenis Kepemilikan</p>
+  								<p>Master Jenis Identitas</p>
   							</a>
   						</li>
   						<li class="nav-item">
@@ -143,9 +113,15 @@
   							</a>
   						</li>
   						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/type_ipaddress'; ?>" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/jenis_pelanggan'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Type IP Address</p>
+  								<p>Master Jenis Pelanggan</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/jenis_perangkat'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Jenis Perangkat</p>
   							</a>
   						</li>
   						<li class="nav-item">
@@ -155,33 +131,121 @@
   							</a>
   						</li>
   						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/jenis_pembayaran'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Jenis Pembayaran</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/jenis_tempat'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Jenis Tempat</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/jenis_kepemilikan_perangkat'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Kepemilikan Perangkat</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/jenis_kepemilikan'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Kepemilikan Tempat</p>
+  							</a>
+  						</li>
+
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/media_koneksi'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Media Koneksi</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/merek_perangkat'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Merek Perangkat</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/metode_pembayaran'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Metode Pembayaran</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/operator'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Operator</p>
+  							</a>
+  						</li>
+
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/pendidikan_terakhir'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Pendidikan</p>
+  							</a>
+  						</li>
+
+  						<li class="nav-item">
   							<a href="<?php echo base_url() . 'administrator/status_sdm'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
   								<p>Master Status SDM</p>
   							</a>
   						</li>
   						<li class="nav-item">
-  							<a href="<?php echo base_url() . 'administrator/bank'; ?>" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/type_ipaddress'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Master Bank</p>
+  								<p>Master Type IP Address</p>
   							</a>
   						</li>
+
   					</ul>
   				</li>
-  				<li class="nav-header">PRODUK</li>
+  				<li class="nav-header">WILAYAH</li>
   				<li class="nav-item has-treeview">
   					<a href="#" class="nav-link">
   						<i class="nav-icon fas fa-chart-pie"></i>
   						<p>
-  							Jenis Layanan
+  							DATA WILAYAH
   							<i class="right fas fa-angle-left"></i>
   						</p>
   					</a>
   					<ul class="nav nav-treeview">
   						<li class="nav-item">
-  							<a href="pages/charts/chartjs.html" class="nav-link">
+  							<a href="<?php echo base_url() . 'administrator/wilayah'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
-  								<p>Kategori</p>
+  								<p>Master Data Wilayah</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/rt'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Detail Wilayah</p>
+  							</a>
+  						</li>
+  					</ul>
+  				</li>
+  				<li class="nav-header">VENDOR</li>
+  				<li class="nav-item has-treeview">
+  					<a href="#" class="nav-link">
+  						<i class="nav-icon fas fa-chart-pie"></i>
+  						<p>
+  							DATA VENDOR
+  							<i class="right fas fa-angle-left"></i>
+  						</p>
+  					</a>
+  					<ul class="nav nav-treeview">
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/datavendor'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Data Vendor</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/vendor'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Layanan Vendor</p>
   							</a>
   						</li>
 

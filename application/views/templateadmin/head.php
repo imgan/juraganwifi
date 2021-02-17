@@ -8,6 +8,10 @@
 
 	<title>AdminLTE 3 | Dashboard 3</title>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/adminlte/plugins/fontawesome-free/css/all.min.css">
+	<!-- Select2 -->
+	<link rel="stylesheet" href="<?= base_url() ?>assets/adminlte/plugins/select2/css/select2.min.css">
+
+	<link rel="stylesheet" href="<?= base_url() ?>assets/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/adminlte/dist/css/ionicons.min.css">
 	<!-- DataTables -->
@@ -35,4 +39,5 @@
 	<!-- AdminLTE App -->
 	<script src="<?= base_url() ?>assets/adminlte/dist/js/adminlte.min.js"></script>
 	<script src="<?= base_url() ?>assets/adminlte/dist/js/jquery.validate.min.js"></script>
+	<script src="<?= base_url() ?>assets/adminlte/plugins/select2/js/select2.full.min.js"></script>
 </head>

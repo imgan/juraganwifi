@@ -22,31 +22,54 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-address-card"></i></span>
 								</div>
-								<input required type="number" id="harga" name="harga" class="form-control" placeholder="Harga">
+								<input required type="text" id="harga" name="harga" class="form-control" placeholder="Harga">
 								<input type="hidden" id="harga_v" name="harga_v">
 								<script language="JavaScript">
-										var rupiah1 = document.getElementById('e_tagihan');
-										rupiah1.addEventListener('keyup', function(e) {
-											rup1 = this.value.replace(/\D/g, '');
-											$('#harga_v').val(rup1);
-											rupiah1.value = ConvertFormatRupiah(this.value, 'Rp. ');
-										});
-									</script>
+									var rupiah3 = document.getElementById('harga');
+									rupiah3.addEventListener('keyup', function(e) {
+										// tambahkan 'Rp.' pada saat form di ketik
+										// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+										rup3 = this.value.replace(/\D/g, '');
+										$('#harga_v').val(rup3);
+										rupiah3.value = formatRupiah3(this.value, 'Rp. ');
+									});
+
+									function formatRupiah3(angka, prefix) {
+										var number_string = angka.replace(/[^,\d]/g, '').toString(),
+											split = number_string.split(','),
+											sisa = split[0].length % 3,
+											rupiah3 = split[0].substr(0, sisa),
+											ribuan3 = split[0].substr(sisa).match(/\d{3}/gi);
+
+										// tambahkan titik jika yang di input sudah menjadi angka ribuan
+										if (ribuan3) {
+											separator = sisa ? '.' : '';
+											rupiah3 += separator + ribuan3.join('.');
+										}
+
+										rupiah3 = split[1] != undefined ? rupiah3 + ',' + split[1] : rupiah3;
+										return prefix == undefined ? rupiah3 : (rupiah3 ? 'Rp. ' + rupiah3 : '');
+									}
+								</script>
+							</div>
+
+							<div class="form-group">
+								<label>Status Aktif</label>
+								<select class="form-control select2" style="width: 100%;" name="status" id="status">
+									<option selected="selected">-- Pilih --</option>
+									<option value="1">Aktif</option>
+									<option value="0 ">Non Aktif</option>
+								</select>
 							</div>
 
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+									<span class="input-group-text"><i class="fas fa-book"></i></span>
 								</div>
-								<input type="file" id="file" name="file" class="form-control" placeholder="Email">
+								<textarea type="text" id="description" name="description" class="form-control" placeholder="Keterangan"></textarea>
 							</div>
 
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
-								</div>
-								<input  type="text" id="description" name="description" class="form-control" placeholder="Deskripsi">
-							</div>
+
 						</div>
 						<!-- /.card-body -->
 					</div>
@@ -65,6 +88,94 @@
 		</div><!-- /.modal-dialog -->
 	</div>
 
+
+	<div id="modalEdit" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form class="form-horizontal" role="form" id="formEdit">
+					<div class="card card-info">
+						<div class="modal-header">
+							<h4 class="modal-title">Edit Layanan</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="card-body">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input required type="hidden" id="e_id" name="e_id" class="form-control">
+								<input required type="text" id="e_nama" name="e_nama" class="form-control" placeholder="Nama Layanan">
+							</div>
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+								</div>
+								<input required type="text" id="e_harga" name="e_harga" class="form-control" placeholder="Harga">
+								<input type="hidden" id="e_harga_v" name="e_harga_v">
+								<script language="JavaScript">
+									var rupiah4 = document.getElementById('e_harga');
+									rupiah4.addEventListener('keyup', function(e) {
+										// tambahkan 'Rp.' pada saat form di ketik
+										// gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+										rup4 = this.value.replace(/\D/g, '');
+										$('#e_harga_v').val(rup3);
+										rupiah4.value = formatRupiah3(this.value, 'Rp. ');
+									});
+
+									function formatRupiah3(angka, prefix) {
+										var number_string = angka.replace(/[^,\d]/g, '').toString(),
+											split = number_string.split(','),
+											sisa = split[0].length % 3,
+											rupiah4 = split[0].substr(0, sisa),
+											ribuan4 = split[0].substr(sisa).match(/\d{3}/gi);
+
+										// tambahkan titik jika yang di input sudah menjadi angka ribuan
+										if (ribuan4) {
+											separator = sisa ? '.' : '';
+											rupiah4 += separator + ribuan4.join('.');
+										}
+
+										rupiah4 = split[1] != undefined ? rupiah4 + ',' + split[1] : rupiah4;
+										return prefix == undefined ? rupiah4 : (rupiah4 ? 'Rp. ' + rupiah4 : '');
+									}
+								</script>
+							</div>
+
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-book"></i></span>
+								</div>
+								<textarea type="text" id="e_description" name="e_description" class="form-control" placeholder="Keterangan"></textarea>
+							</div>
+
+							<div class="form-group">
+								<label>Status Aktif</label>
+								<select class="form-control select2" style="width: 100%;" name="e_status" id="e_status">
+									<option selected="selected">-- Pilih --</option>
+									<option value=1>Aktif</option>
+									<option value=0>Non Aktif</option>
+								</select>
+							</div>
+						</div>
+						<!-- /.card-body -->
+					</div>
+					<div class="modal-footer">
+						<button type="submit" id="btn_import" class="btn btn-sm btn-success pull-left">
+							<i class="ace-icon fa fa-save"></i>
+							Simpan
+						</button>
+						<button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+							<i class="ace-icon fa fa-times"></i>
+							Batal
+						</button>
+					</div>
+				</form>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
 	<!-- Default box -->
 
 	<div class="card">
@@ -80,23 +191,23 @@
 			<table id="table_id" class="table table-bordered table-hover projects">
 				<thead>
 					<tr>
-						<th >
+						<th>
 							#
 						</th>
-						<th class="text-center" >
+						<th class="text-center">
 							Nama Layanan
 						</th>
 						<th class="text-center">
 							Harga / Bulan
 						</th>
-						<th  class="text-center">
-							Kategori
+						<th class="text-center">
+							Status Product
 						</th>
 						<th class="text-center">
 							Keterangan
 						</th>
-						<th  class="text-center">
-							Status
+						<th style="width: 16%" class="text-center">
+							Action
 						</th>
 					</tr>
 				</thead>
@@ -144,7 +255,7 @@
 			submitHandler: function(form) {
 				$('#btn_simpan').html('Sending..');
 				$.ajax({
-					url: "<?php echo base_url('administrator/customer/simpan') ?>",
+					url: "<?php echo base_url('administrator/layanan/simpan') ?>",
 					type: "POST",
 					data: $('#formTambah').serialize(),
 					dataType: "json",
@@ -155,7 +266,7 @@
 							document.getElementById("formTambah").reset();
 							swalInputSuccess();
 							show_data();
-							$('#modalTambah').modal('hide');
+							$('#my-modal').modal('hide');
 						} else {
 							swalInputFailed();
 						}
@@ -180,7 +291,7 @@
 			if (result.value) {
 				$.ajax({
 					type: "POST",
-					url: "<?php echo base_url('siswa/delete') ?>",
+					url: "<?php echo base_url('administrator/layanan/delete') ?>",
 					async: true,
 					dataType: "JSON",
 					data: {
@@ -221,13 +332,8 @@
 						'<td class="text-left">' + no + '</td>' +
 						'<td class="text-left">' + data[i].name + '</td>' +
 						'<td class="text-right">' + ConvertFormatRupiah(data[i].price, 'Rp.') + '</td>' +
-						'<td class="project_progress">' +
-						'  <div class="progress progress-sm">' +
-						'  <div class="progress-bar bg-green" role="progressbar" aria-volumenow="35" aria-volumemin="0" aria-volumemax="100" style="width: 35%">' +
-						'  </div>' +
-						'</div>' +
-						'  <small> 35% Complete </small> </td>' +
 						status +
+						'<td class="text-left">' + data[i].description + '</td>' +
 						'<td class="project-actions text-center">' +
 						'   <button  class="btn btn-primary btn-sm item_edit"  data-id="' + data[i].id + '">' +
 						'      <i class="fas fa-folder"> </i>  Edit </a>' +
@@ -267,6 +373,56 @@
 	});
 
 
+	if ($("#formEdit").length > 0) {
+		$("#formEdit").validate({
+			errorClass: "my-error-class",
+			validClass: "my-valid-class",
+			rules: {
+				e_nama: {
+					required: true
+				},
+
+				e_keterangan: {
+					required: true
+				},
+
+			},
+			messages: {
+				e_nama: {
+					required: "Nama Jenis Perangkat harus diisi!"
+				},
+
+				e_keterangan: {
+					required: "Keterangan harus diisi!"
+				},
+
+			},
+			submitHandler: function(form) {
+				$('#btn_edit').html('Sending..');
+				$.ajax({
+					url: "<?php echo base_url('administrator/layanan/update') ?>",
+					type: "POST",
+					data: $('#formEdit').serialize(),
+					dataType: "json",
+					success: function(response) {
+						$('#btn_edit').html('<i class="ace-icon fa fa-save"></i>' +
+							'Ubah');
+						if (response == true) {
+							document.getElementById("formEdit").reset();
+							swalEditSuccess();
+							show_data();
+							$('#modalEdit').modal('hide');
+						} else if (response == 401) {
+							swalIdDouble();
+						} else {
+							swalEditFailed();
+						}
+					}
+				});
+			}
+		})
+	}
+
 	function ConvertFormatRupiah(angka, prefix) {
 		var number_string = angka.replace(/[^,\d]/g, '').toString(),
 			split = number_string.split(','),
@@ -283,4 +439,28 @@
 		rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
 		return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 	}
+
+	//get data for update record
+	$('#show_data').on('click', '.item_edit', function() {
+		document.getElementById("formEdit").reset();
+		var id = $(this).data('id');
+		$('#modalEdit').modal('show');
+		$.ajax({
+			type: "POST",
+			url: "<?php echo base_url('administrator/layanan/tampil_byid') ?>",
+			async: true,
+			dataType: "JSON",
+			data: {
+				id: id,
+			},
+			success: function(data) {
+				$('#e_id').val(data[0].id);
+				$('#e_nama').val(data[0].name);
+				$('#e_description').val(data[0].description);
+				$('#e_status').val(data[0].status);
+				$('#e_harga').val(data[0].price);
+				$('#e_harga_v').val(data[0].price);
+			}
+		});
+	});
 </script>

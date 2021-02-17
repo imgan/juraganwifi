@@ -18,10 +18,16 @@ class Model_layanan extends CI_model
         return $this->db->get($table);
     }
 
-    public function view_where($table, $data)
+
+	public function checkDuplicate($data, $table)
+    {
+        $this->db->where('name',$data['name']);
+        return $this->db->get($table)->num_rows();
+    }
+
+    public function viewWhere($table, $data)
     {
         $this->db->where($data);
-        $this->db->where('isdeleted !=', 1);
         return $this->db->get($table);
 	}
 	
