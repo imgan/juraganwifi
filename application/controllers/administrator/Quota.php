@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Metode_pembayaran extends CI_Controller
+class Quota extends CI_Controller
 {
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		$this->load->model('administrator/model_metode_pembayaran');
+		$this->load->model('administrator/model_quota');
 	}
 
 	function render_view($data)
@@ -18,10 +18,12 @@ class Metode_pembayaran extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
+			$myoperator = $this->model_quota->viewOrdering('operator', 'id', 'desc')->result_array();
 			$data = array(
-				'page_content'      => '../pageadmin/metodepembayaran/view',
-				'ribbon'            => '<li class="active">Daftar Metode Pembayaran</li>',
-				'page_name'         => 'Daftar Metode Pembayaran',
+				'page_content'      => '../pageadmin/quota/view',
+				'ribbon'            => '<li class="active">Daftar Quota</li>',
+				'page_name'         => 'Daftar Quota',
+				'myoperator'			=> $myoperator
 			);
 			$this->render_view($data); //Memanggil function render_view
 		} else {
@@ -32,7 +34,7 @@ class Metode_pembayaran extends CI_Controller
 	public function tampil()
 	{
 		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
-			$my_data = $this->model_metode_pembayaran->viewOrdering('metode_pembayaran', 'id', 'desc')->result_array();
+			$my_data = $this->model_quota->viewOrderingCustom('quota', 'id', 'desc')->result_array();
 			echo json_encode($my_data);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -47,11 +49,13 @@ class Metode_pembayaran extends CI_Controller
 			);
 			$data = array(
 				'nama'  => $this->input->post('e_nama'),
+				'operator'  => $this->input->post('e_operator'),
+				'besar_quota'  => $this->input->post('e_besar_quota'),
 				'keterangan'  => $this->input->post('e_keterangan'),
-				'updatedAt' => date('Y-m-d H:i:s'),
-				'updatedBy' => $this->session->userdata('name'),
+				'createdAt' => date('Y-m-d H:i:s'),
+				'createdBy'	=> $this->session->userdata('name')
 			);
-			$action = $this->model_metode_pembayaran->update($data_id, $data, 'metode_pembayaran');
+			$action = $this->model_quota->update($data_id, $data, 'quota');
 			echo json_encode($action);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -65,48 +69,49 @@ class Metode_pembayaran extends CI_Controller
 			$data = array(
 				'id'  => $this->input->post('id'),
 			);
-			$my_data = $this->model_metode_pembayaran->viewWhere('metode_pembayaran', $data)->result();
+			$my_data = $this->model_quota->viewWhere('quota', $data)->result();
 			echo json_encode($my_data);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
 		}
 	}
 
-    public function delete()
-    {
-        if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
+	public function delete()
+	{
+		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
 
-            $data_id = array(
-                'id'  => $this->input->post('id')
-            );
-            $action = $this->model_metode_pembayaran->delete($data_id, 'metode_pembayaran');
-            echo json_encode($action);
-        } else {
-            $this->load->view('pageadmin/login'); //Memanggil function render_view
-        }
-    }
+			$data_id = array(
+				'id'  => $this->input->post('id')
+			);
+			$action = $this->model_quota->delete($data_id, 'quota');
+			echo json_encode($action);
+		} else {
+			$this->load->view('pageadmin/login'); //Memanggil function render_view
+		}
+	}
 
 
-    public function simpan()
-    {
-        if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
+	public function simpan()
+	{
+		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
 
-            $data = array(
-                'nama'  => $this->input->post('nama'),
+			$data = array(
+				'nama'  => $this->input->post('nama'),
+				'operator'  => $this->input->post('operator'),
+				'besar_quota'  => $this->input->post('besar_quota'),
 				'keterangan'  => $this->input->post('keterangan'),
 				'createdAt' => date('Y-m-d H:i:s'),
 				'createdBy'	=> $this->session->userdata('name')
-            );
-			$cek = $this->model_metode_pembayaran->checkDuplicate($data,'metode_pembayaran');
-			if($cek > 0){
+			);
+			$cek = $this->model_quota->checkDuplicate($data, 'quota');
+			if ($cek > 0) {
 				echo json_encode(401);
 			} else {
-				$action = $this->model_metode_pembayaran->insert($data, 'metode_pembayaran');
+				$action = $this->model_quota->insert($data, 'quota');
 				echo json_encode($action);
 			}
-
-        } else {
-            $this->load->view('pageadmin/login'); //Memanggil function render_view
-        }
-    }
+		} else {
+			$this->load->view('pageadmin/login'); //Memanggil function render_view
+		}
+	}
 }

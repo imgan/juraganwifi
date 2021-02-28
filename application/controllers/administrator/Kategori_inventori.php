@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Operator extends CI_Controller
+class Kategori_inventori extends CI_Controller
 {
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
-		$this->load->model('administrator/model_operator');
+		$this->load->model('administrator/model_kategori_inventori');
 	}
 
 	function render_view($data)
@@ -18,12 +18,10 @@ class Operator extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
-			$mywilayah = $this->model_operator->viewOrdering('wilayah', 'id', 'desc')->result_array();
 			$data = array(
-				'page_content'      => '../pageadmin/operator/view',
-				'ribbon'            => '<li class="active">Operator</li>',
-				'page_name'         => 'Operator',
-				'mywilayah'			=> $mywilayah
+				'page_content'      => '../pageadmin/kategoriinventori/view',
+				'ribbon'            => '<li class="active">Daftar Kategori Inventori</li>',
+				'page_name'         => 'Daftar Kategori Inventori',
 			);
 			$this->render_view($data); //Memanggil function render_view
 		} else {
@@ -34,7 +32,7 @@ class Operator extends CI_Controller
 	public function tampil()
 	{
 		if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
-			$my_data = $this->model_operator->viewOrdering('operator', 'id', 'desc')->result_array();
+			$my_data = $this->model_kategori_inventori->viewOrdering('kategori_inventori', 'id', 'desc')->result_array();
 			echo json_encode($my_data);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -48,13 +46,12 @@ class Operator extends CI_Controller
 				'id'  => $this->input->post('e_id')
 			);
 			$data = array(
-				'name'  => $this->input->post('e_nama'),
-				'alamat'  => $this->input->post('e_alamat'),
+				'nama'  => $this->input->post('e_nama'),
 				'keterangan'  => $this->input->post('e_keterangan'),
 				'updatedAt' => date('Y-m-d H:i:s'),
 				'updatedBy' => $this->session->userdata('name'),
 			);
-			$action = $this->model_operator->update($data_id, $data, 'operator');
+			$action = $this->model_kategori_inventori->update($data_id, $data, 'kategori_inventori');
 			echo json_encode($action);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -68,7 +65,7 @@ class Operator extends CI_Controller
 			$data = array(
 				'id'  => $this->input->post('id'),
 			);
-			$my_data = $this->model_operator->viewWhere('operator', $data)->result();
+			$my_data = $this->model_kategori_inventori->viewWhere('kategori_inventori', $data)->result();
 			echo json_encode($my_data);
 		} else {
 			$this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -82,7 +79,7 @@ class Operator extends CI_Controller
             $data_id = array(
                 'id'  => $this->input->post('id')
             );
-            $action = $this->model_operator->delete($data_id, 'operator');
+            $action = $this->model_kategori_inventori->delete($data_id, 'kategori_inventori');
             echo json_encode($action);
         } else {
             $this->load->view('pageadmin/login'); //Memanggil function render_view
@@ -95,17 +92,16 @@ class Operator extends CI_Controller
         if ($this->session->userdata('email') != null && $this->session->userdata('name') != null) {
 
             $data = array(
-                'name'  => $this->input->post('nama'),
+                'nama'  => $this->input->post('nama'),
 				'keterangan'  => $this->input->post('keterangan'),
-				'alamat'  => $this->input->post('alamat'),
 				'createdAt' => date('Y-m-d H:i:s'),
 				'createdBy'	=> $this->session->userdata('name')
             );
-			$cek = $this->model_operator->checkDuplicate($data,'operator');
+			$cek = $this->model_kategori_inventori->checkDuplicate($data,'kategori_inventori');
 			if($cek > 0){
 				echo json_encode(401);
 			} else {
-				$action = $this->model_operator->insert($data, 'operator');
+				$action = $this->model_kategori_inventori->insert($data, 'kategori_inventori');
 				echo json_encode($action);
 			}
 

@@ -3,7 +3,7 @@
   	<!-- Brand Logo -->
   	<a href="index3.html" class="brand-link">
   		<img src="<?= base_url() ?>assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-  		<span class="brand-text font-weight-light">AdminLTE 3</span>
+  		<span class="brand-text font-weight-light">Dashboard</span>
   	</a>
 
   	<!-- Sidebar -->
@@ -148,6 +148,7 @@
   								<p>Master Kepemilikan Perangkat</p>
   							</a>
   						</li>
+
   						<li class="nav-item">
   							<a href="<?php echo base_url() . 'administrator/jenis_kepemilikan'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
@@ -171,6 +172,18 @@
   							<a href="<?php echo base_url() . 'administrator/metode_pembayaran'; ?>" class="nav-link">
   								<i class="far fa-circle nav-icon"></i>
   								<p>Master Metode Pembayaran</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/odc'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master ODC</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/odp'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master ODP</p>
   							</a>
   						</li>
   						<li class="nav-item">
@@ -226,6 +239,31 @@
   						</li>
   					</ul>
   				</li>
+  				<li class="nav-header">GSM</li>
+  				<li class="nav-item has-treeview">
+  					<a href="#" class="nav-link">
+  						<i class="nav-icon fas fa-chart-pie"></i>
+  						<p>
+  							DATA GSM
+  							<i class="right fas fa-angle-left"></i>
+  						</p>
+  					</a>
+  					<ul class="nav nav-treeview">
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/quota'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Quota</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/penggunagsm'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Data Pengguna GSM</p>
+  							</a>
+  						</li>
+
+  					</ul>
+  				</li>
   				<li class="nav-header">VENDOR</li>
   				<li class="nav-item has-treeview">
   					<a href="#" class="nav-link">
@@ -248,7 +286,62 @@
   								<p>Master Layanan Vendor</p>
   							</a>
   						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/inet'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Data Pengguna INET</p>
+  							</a>
+  						</li>
 
+  					</ul>
+  				</li>
+  				<li class="nav-header">ALFAMIDI</li>
+  				<li class="nav-item has-treeview">
+  					<a href="#" class="nav-link">
+  						<i class="nav-icon fas fa-chart-pie"></i>
+  						<p>
+  							DATA MIDI
+  							<i class="right fas fa-angle-left"></i>
+  						</p>
+  					</a>
+  					<ul class="nav nav-treeview">
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/dcmidi'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master DC MIDI</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/datamidi'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Toko AlfaMidi</p>
+  							</a>
+  						</li>
+
+  					</ul>
+  				</li>
+  				<li class="nav-header">INVENTORI</li>
+  				<li class="nav-item has-treeview">
+  					<a href="#" class="nav-link">
+  						<i class="nav-icon fas fa-cogs"></i>
+  						<p>
+  							Inventori
+  							<i class="fas fa-angle-left right"></i>
+  						</p>
+  					</a>
+  					<ul class="nav nav-treeview">
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/datainventori'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Data Inventori</p>
+  							</a>
+  						</li>
+  						<li class="nav-item">
+  							<a href="<?php echo base_url() . 'administrator/kategori_inventori'; ?>" class="nav-link">
+  								<i class="far fa-circle nav-icon"></i>
+  								<p>Master Kategori Inventori</p>
+  							</a>
+  						</li>
   					</ul>
   				</li>
   				<li class="nav-header">KEUANGAN</li>

@@ -5,84 +5,78 @@
 				<form class="form-horizontal" role="form" id="formTambah">
 					<div class="card card-info">
 						<div class="modal-header">
-							<h4 class="modal-title">Add Vendor</h4>
+							<h4 class="modal-title">Add Data INET </h4>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="card-body">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
-								</div>
-								<input required type="text" id="nama" name="nama" class="form-control" placeholder="Nama Vendor">
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-home"></i></span>
-								</div>
-								<textarea type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat"></textarea>
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
-								</div>
-								<input required type="text" id="telp" name="telp" class="form-control" placeholder="Telephone">
-							</div>
 							<div class="form-group">
-								<label>Jenis Layanan Vendor</label>
-								<select class="form-control select2" style="width: 100%;" name="layanan" id="layanan">
+								<label>Nama Operator</label>
+								<select class="form-control select2" style="width: 100%;" name="nama" id="nama">
 									<option selected="selected">-- Pilih --</option>
-									<?php foreach ($myvendor as $value) { ?>
-										<option value=<?= $value['id'] ?>><?= $value['nama'] ?></option>
+									<?php foreach ($myoperator as $value) { ?>
+										<option value=<?= $value['id'] ?>><?= $value['name'] ?></option>
 									<?php } ?>
 								</select>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input required type="text" id="nmpic" name="nmpic" class="form-control" placeholder="Nama PIC Vendor">
+								<input type="text" id="nomor_pstn" name="nomor_pstn" class="form-control" placeholder="Nomor PSTN"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input required type="text" id="telppic" name="telppic" class="form-control" placeholder="Telp PIC Vendor">
+								<input type="text" id="nomor_inet" name="nomor_inet" class="form-control" placeholder="Nomor INET"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input type="email" id="emailpic" name="emailpic" class="form-control" placeholder="Email PIC Vendor">
+								<input type="text" id="password_inet" name="password_inet" class="form-control" placeholder="Password INET"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-globe"></i></span>
+									<span class="input-group-text"><i class="fas fa-truck-loading"></i></span>
 								</div>
-								<input type="text" id="website" name="website" class="form-control" placeholder="Alamat Website">
+								<input type="text" id="kapasitas" name="kapasitas" class="form-control" placeholder="Kapasitas"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+									<span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
 								</div>
-								<input type="text" id="npwp" name="npwp" class="form-control" placeholder="Nomor NPWP">
+								<input type="text" id="alokasi" name="alokasi" class="form-control" placeholder="Alokasi"></input>
 							</div>
+
 							<div class="form-group">
-								<label>Upload NPWP</label>
-								<input type="file" id="filenpwp" name="filenpwp" class="form-control" placeholder="Nomor NPWP">
+								<label>Status</label>
+								<select class="form-control select2" style="width: 100%;" name="status" id="status">
+									<option value="" selected="selected">-- Pilih --</option>
+									<option value="1">-- Active --</option>
+									<option value="0">-- Inactive --</option>
+								</select>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-cog"></i></span>
 								</div>
 								<textarea type="text" id="keterangan" name="keterangan" class="form-control" placeholder="Keterangan"></textarea>
 							</div>
+
 						</div>
 						<!-- /.card-body -->
 					</div>
 					<div class="modal-footer">
-						<button type="submit" id="btn_simpan" class="btn btn-sm btn-success pull-left">
+						<button type="submit" id="btn_import" class="btn btn-sm btn-success pull-left">
 							<i class="ace-icon fa fa-save"></i>
 							Simpan
 						</button>
@@ -102,85 +96,79 @@
 				<form class="form-horizontal" role="form" id="formEdit">
 					<div class="card card-info">
 						<div class="modal-header">
-							<h4 class="modal-title">Edit Vendor</h4>
+							<h4 class="modal-title">Edit Data INET</h4>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
 						<div class="card-body">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
-								</div>
-								<input required type="hidden" id="e_id" name="e_id" >
-								<input required type="text" id="e_nama" name="e_nama" class="form-control" placeholder="Nama Vendor">
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-home"></i></span>
-								</div>
-								<textarea type="text" id="e_alamat" name="e_alamat" class="form-control" placeholder="Alamat"></textarea>
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
-								</div>
-								<input required type="text" id="e_telp" name="e_telp" class="form-control" placeholder="Telephone">
-							</div>
 							<div class="form-group">
-								<label>Jenis Layanan Vendor</label>
-								<select class="form-control select2" style="width: 100%;" name="e_layanan" id="e_layanan">
+								<label>Nama Operator</label>
+								<select class="form-control select2" style="width: 100%;" name="e_nama" id="e_nama">
 									<option selected="selected">-- Pilih --</option>
-									<?php foreach ($myvendor as $value) { ?>
-										<option value=<?= $value['id'] ?>><?= $value['nama'] ?></option>
+									<?php foreach ($myoperator as $value) { ?>
+										<option value=<?= $value['id'] ?>><?= $value['name'] ?></option>
 									<?php } ?>
 								</select>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-user"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input required type="text" id="e_nmpic" name="e_nmpic" class="form-control" placeholder="Nama PIC Vendor">
+								<input type="hidden" id="e_id" name="e_id" ></input>
+								<input type="text" id="e_nomor_pstn" name="e_nomor_pstn" class="form-control" placeholder="Nomor PSTN"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-phone"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input required type="text" id="e_telppic" name="e_telppic" class="form-control" placeholder="Telp PIC Vendor">
+								<input type="text" id="e_nomor_inet" name="e_nomor_inet" class="form-control" placeholder="Nomor INET"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+									<span class="input-group-text"><i class="fas fa-tags"></i></span>
 								</div>
-								<input type="email" id="e_emailpic" name="e_emailpic" class="form-control" placeholder="Email PIC Vendor">
+								<input type="text" id="e_password_inet" name="e_password_inet" class="form-control" placeholder="Password INET"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-globe"></i></span>
+									<span class="input-group-text"><i class="fas fa-truck-loading"></i></span>
 								</div>
-								<input type="text" id="e_website" name="e_website" class="form-control" placeholder="Alamat Website">
+								<input type="text" id="e_kapasitas" name="e_kapasitas" class="form-control" placeholder="Kapasitas"></input>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-address-card"></i></span>
+									<span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
 								</div>
-								<input type="text" id="e_npwp" name="e_npwp" class="form-control" placeholder="Nomor NPWP">
+								<input type="text" id="e_alokasi" name="e_alokasi" class="form-control" placeholder="Alokasi"></input>
 							</div>
+
 							<div class="form-group">
-								<label>Upload NPWP</label>
-								<input type="file" id="e_filenpwp" name="e_filenpwp" class="form-control" placeholder="Nomor NPWP">
+								<label>Status</label>
+								<select class="form-control select2" style="width: 100%;" name="e_status" id="e_status">
+									<option value="" selected="selected">-- Pilih --</option>
+									<option value="1">-- Active --</option>
+									<option value="0">-- Inactive --</option>
+								</select>
 							</div>
+
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-cog"></i></span>
 								</div>
 								<textarea type="text" id="e_keterangan" name="e_keterangan" class="form-control" placeholder="Keterangan"></textarea>
 							</div>
+
 						</div>
 						<!-- /.card-body -->
 					</div>
 					<div class="modal-footer">
-						<button type="submit" id="btn_edit" class="btn btn-sm btn-success pull-left">
+						<button type="submit" id="btn_import" class="btn btn-sm btn-success pull-left">
 							<i class="ace-icon fa fa-save"></i>
 							Simpan
 						</button>
@@ -198,11 +186,12 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h3 class="card-title">Daftar Vendor</h3>
+			<h3 class="card-title">Daftar Pengguna INET</h3>
 		</div>
 		<br>
 		<div class="col-sm-2">
-			<button href="#modalTambah" type="button" role="button" data-toggle="modal" class="btn btn-block btn-primary"><a class="ace-icon fa fa-plus bigger-120"></a> Add Vendor</button>
+			<button href="#modalTambah" type="button" role="button" data-toggle="modal" class="btn btn-block btn-primary">
+				<a class="ace-icon fa fa-plus bigger-120"></a> Add INET</button>
 		</div>
 		<br>
 		<div class="card-body p-0">
@@ -213,31 +202,25 @@
 							#
 						</th>
 						<th class="text-center">
-							Nama Vendor
+							Nama Operator
 						</th>
 						<th class="text-center">
-							Alamat
+							Nomor PSTN
 						</th>
 						<th class="text-center">
-							Telp
+							Nomor INET
 						</th>
 						<th class="text-center">
-							PIC
+							Password INET
 						</th>
 						<th class="text-center">
-							Telp PIC
+							Kapasitas
 						</th>
 						<th class="text-center">
-							Email 
+							Alokasi
 						</th>
 						<th class="text-center">
-							Website 
-						</th>
-						<th class="text-center">
-							Nomor NPWP 
-						</th>
-						<th class="text-center">
-							File NPWP 
+							Status
 						</th>
 						<th class="text-center">
 							Keterangan
@@ -273,40 +256,32 @@
 			messages: {
 
 				nama: {
-					required: "Nama Jenis IP harus diisi!"
+					required: "Wajib diisi!"
 				},
 
 				keterangan: {
-					required: "Keterangan harus diisi!"
+					required: "Wajib diisi!"
 				},
 			},
 			submitHandler: function(form) {
 				$('#btn_simpan').html('Sending..');
-				formdata = new FormData(form);
 				$.ajax({
-					url: "<?php echo base_url('administrator/datavendor/simpan') ?>",
+					url: "<?php echo base_url('administrator/inet/simpan') ?>",
 					type: "POST",
-					data: formdata,
-					processData: false,
-					contentType: false,
-					cache: false,
-					async: false,
+					data: $('#formTambah').serialize(),
+					dataType: "json",
 					success: function(response) {
-						console.log(response);
 						$('#btn_simpan').html('<i class="ace-icon fa fa-save"></i>' +
 							'Simpan');
 						if (response == true) {
 							document.getElementById("formTambah").reset();
-						
+							swalInputSuccess();
 							show_data();
 							$('#modalTambah').modal('hide');
 						} else if (response == 401) {
 							swalIdDouble();
 						} else {
-							swalInputSuccess();
-							$('#modalTambah').modal('hide');
-							document.getElementById("formTambah").reset();
-							show_data();
+							swalInputFailed("Data Duplicate");
 						}
 					}
 				});
@@ -329,7 +304,7 @@
 			if (result.value) {
 				$.ajax({
 					type: "POST",
-					url: "<?php echo base_url('administrator/datavendor/delete') ?>",
+					url: "<?php echo base_url('administrator/inet/delete') ?>",
 					async: true,
 					dataType: "JSON",
 					data: {
@@ -352,7 +327,7 @@
 	function show_data() {
 		$.ajax({
 			type: 'POST',
-			url: '<?php echo site_url('administrator/datavendor/tampil') ?>',
+			url: '<?php echo site_url('administrator/inet/tampil') ?>',
 			async: true,
 			dataType: 'json',
 			success: function(data) {
@@ -360,21 +335,21 @@
 				var i = 0;
 				var no = 1;
 				for (i = 0; i < data.length; i++) {
+					var status = '';
+					if (data[i].status == 1 ) {
+						status = '<td class="project-state"><span class="badge badge-success"> Active </span></td>'
+					} else {
+						status = '<td class="project-state"><span class="badge badge-danger"> Inactive </span></td>'
+					}
 					html += '<tr>' +
 						'<td class="text-left">' + no + '</td>' +
-						'<td class="text-left">' + data[i].nama + '</td>' +
-						'<td class="text-left">' + data[i].alamat + '</td>' +
-						'<td class="text-left">' + data[i].telp + '</td>' +
-						'<td class="text-left">' + data[i].pic_vendor + '</td>' +
-						'<td class="text-left">' + data[i].telp_pic + '</td>' +
-						'<td class="text-left">' + data[i].email + '</td>' +
-						'<td class="text-left">' + data[i].website + '</td>' +
-						'<td class="text-left">' + data[i].npwp + '</td>' +
-						'<td class="text-left">' +
-						'   <a href="<?php echo base_url().'assets/vendor/npwp/'?>'+data[i].file_npwp+'" target="_blank" class="btn btn-success btn-sm"  data-id="' + data[i].id + '">' +
-						'      <i class="fas fa-download"> </i>  Download </a>' +
-						'</a> &nbsp' +
-						 '</td>' +
+						'<td class="text-left">' + data[i].nama_operator + '</td>' +
+						'<td class="text-left">' + data[i].nomor_pstn + '</td>' +
+						'<td class="text-left">' + data[i].nomor_inet + '</td>' +
+						'<td class="text-left">' + data[i].password_inet + '</td>' +
+						'<td class="text-left">' + data[i].kapasitas + '</td>' +
+						'<td class="text-left">' + data[i].alokasi + '</td>' +
+						status+
 						'<td class="text-left">' + data[i].keterangan + '</td>' +
 						'<td class="project-actions text-right">' +
 						'   <button  class="btn btn-primary btn-sm item_edit"  data-id="' + data[i].id + '">' +
@@ -411,7 +386,7 @@
 		$('#modalEdit').modal('show');
 		$.ajax({
 			type: "POST",
-			url: "<?php echo base_url('administrator/datavendor/tampil_byid') ?>",
+			url: "<?php echo base_url('administrator/inet/tampil_byid') ?>",
 			async: true,
 			dataType: "JSON",
 			data: {
@@ -419,16 +394,15 @@
 			},
 			success: function(data) {
 				$('#e_id').val(data[0].id);
-				$('#e_alamat').val(data[0].alamat);
-				$('#e_nama').val(data[0].nama);
+				$('#e_nama').val(data[0].nama).select2();
 				$('#e_keterangan').val(data[0].keterangan);
-				$('#e_npwp').val(data[0].npwp);
-				$('#e_website').val(data[0].website);
-				$('#e_layanan').val(data[0].jenis_layanan).select2();
-				$('#e_telppic').val(data[0].telp_pic);
-				$('#e_emailpic').val(data[0].email);
-				$('#e_nmpic').val(data[0].pic_vendor);
-				$('#e_telp').val(data[0].telp);
+				$('#e_nomor_pstn').val(data[0].nomor_pstn);
+				$('#e_nomor_inet').val(data[0].nomor_inet);
+				$('#e_password_inet').val(data[0].password_inet);
+				$('#e_kapasitas').val(data[0].kapasitas);
+				$('#e_alokasi').val(data[0].alokasi);
+				$('#e_status').val(data[0].status);
+
 			}
 		});
 	});
@@ -437,17 +411,33 @@
 		$("#formEdit").validate({
 			errorClass: "my-error-class",
 			validClass: "my-valid-class",
-				submitHandler: function(form) {
+			rules: {
+				e_nama: {
+					required: true
+				},
+
+				e_keterangan: {
+					required: true
+				},
+
+			},
+			messages: {
+				e_nama: {
+					required: "Wajib diisi!"
+				},
+
+				e_keterangan: {
+					required: "Wajib diisi!"
+				},
+
+			},
+			submitHandler: function(form) {
 				$('#btn_edit').html('Sending..');
-				formdata = new FormData(form);
 				$.ajax({
-					url: "<?php echo base_url('administrator/datavendor/update') ?>",
+					url: "<?php echo base_url('administrator/inet/update') ?>",
 					type: "POST",
-					data: formdata,
-					processData: false,
-					contentType: false,
-					cache: false,
-					async: false,
+					data: $('#formEdit').serialize(),
+					dataType: "json",
 					success: function(response) {
 						$('#btn_edit').html('<i class="ace-icon fa fa-save"></i>' +
 							'Ubah');
@@ -459,9 +449,7 @@
 						} else if (response == 401) {
 							swalIdDouble();
 						} else {
-							swalEditSuccess();
-							show_data();
-							$('#modalEdit').modal('hide');
+							swalEditFailed();
 						}
 					}
 				});
@@ -470,7 +458,6 @@
 	}
 
 	$(document).ready(function() {
-		$('.select2').select2();
 		show_data();
 		$('#table_id').DataTable({
 			"searching": true,

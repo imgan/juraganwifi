@@ -53,7 +53,7 @@ class Datavendor extends CI_Controller
 			$config["allowed_types"] = 'jpg|jpeg|png|gif|pdf';
 			$config["max_size"] = 4096;
 			$this->load->library('upload', $config);
-			$do_upload = $this->upload->do_upload("filenpwp");
+			$do_upload = $this->upload->do_upload("e_filenpwp");
 			if ($do_upload) {
 				$upload_data = $this->upload->data();
 				$file_name = $upload_data['file_name'];
