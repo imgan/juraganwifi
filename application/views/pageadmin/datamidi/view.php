@@ -15,73 +15,53 @@
 								<div class="card-body">
 									<b>DATA TOKO</b>
 									<hr>
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-tag"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Kode Toko</label>
 										<input required type="text" id="kode" name="kode" class="form-control" placeholder="Kode Toko">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-home"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nama Toko</label>
 										<input required type="text" id="nama" name="nama" class="form-control" placeholder="Nama Toko">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-home"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Alamat Toko</label>
 										<textarea type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat Toko"></textarea>
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Titik Kordinat</label>
 										<input type="text" id="titik_kordinat" name="titik_kordinat" class="form-control" placeholder="Titik Kordinat">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-phone"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nomor Telp Toko</label>
 										<input type="text" id="telp_toko" name="telp_toko" class="form-control" placeholder="Nomor Telp Toko">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-address-card"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nama Pejabat Toko</label>
 										<input type="text" id="nama_pejabat_toko" name="nama_pejabat_toko" class="form-control" placeholder="Nama Pejabat Toko">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-phone"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Telp Pejabat Toko</label>
 										<input type="text" id="telp_pejabat" name="telp_pejabat" class="form-control" placeholder="Telp Pejabat Toko">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-address-card"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nama IT Cabang</label>
 										<input type="text" id="nama_it_cabang" name="nama_it_cabang" class="form-control" placeholder="Nama IT Cabang">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-phone"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Telp IT Cabang</label>
 										<input type="text" id="telp_it_cabang" name="telp_it_cabang" class="form-control" placeholder="Telp IT Cabang">
 									</div>
 							
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-user"></i></span>
-										</div>
+									<div class="form-group">
+										<label>PIC Aktivasi</label>
 										<input type="text" id="pic_aktivasi" name="pic_aktivasi" class="form-control" placeholder="PIC Aktivasi">
 									</div>
 
@@ -118,10 +98,8 @@
 										</select>
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-server"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Type Perangkat</label>
 										<input type="text" id="type_perangkat" name="type_perangkat" class="form-control" placeholder="Type Perangkat">
 									</div>
 
@@ -135,45 +113,33 @@
 										</select>
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-stream"></i></span>
-										</div>
+									<div class="form-group">
+										<label>MAC Address</label>
 										<input type="text" id="macaddress" name="macaddress" class="form-control" placeholder="MAC Address">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-list-ol"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Serial Number</label>
 										<input type="text" id="serial_number" name="serial_number" class="form-control" placeholder="Serial Number">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-tags"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nomor MSISDN 1</label>
 										<input type="text" id="nomor_1" name="nomor_1" class="form-control" placeholder="NOMOR MSISDN 1">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-tags"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Noor MSISDN 2</label>										
 										<input type="text" id="nomor_2" name="nomor_2" class="form-control" placeholder="NOMOR MSISDN 2">
-									</div>
+									</label>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-tags"></i></span>
-										</div>
+									<div class="form-group">
+										<label>IMEI GSM 1</label>
 										<input type="text" id="imei_1" name="imei_1" class="form-control" placeholder="IMEI-GSM 1">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-tags"></i></span>
-										</div>
+									<div class="form-group">
+										<label>IMEI GSM 2</label>
 										<input type="text" id="imei_2" name="imei_2" class="form-control" placeholder="IMEI-GSM 2">
 									</div>
 
@@ -197,10 +163,8 @@
 										</select>
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-truck-loading"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Kapasitas</label>
 										<input type="text" id="kapasitas" name="kapasitas" class="form-control" placeholder="Kapasitas">
 									</div>
 
@@ -218,10 +182,8 @@
 										<input type="file" id="dokumen" name="dokumen" class="form-control">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-cogs"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Keterangan</label>
 										<textarea type="text" id="keterangan" name="keterangan" class="form-control" placeholder="Keterangan"></textarea>
 									</div>
 								</div>
@@ -257,18 +219,14 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="card-body">
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-user"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nama Inventori</label>
 										<input required type="hidden" id="e_id" name="e_id" class="form-control">
 										<input required type="text" id="e_nama" name="e_nama" class="form-control" placeholder="Nama Inventori">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-list-ol"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Nomor Inventori</label>
 										<input required type="text" id="e_nomor" name="e_nomor" class="form-control" placeholder="Nomor Inventori">
 									</div>
 
@@ -333,31 +291,23 @@
 										</select>
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-barcode"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Serial Number</label>
 										<input type="text" id="e_serialnumber" name="e_serialnumber" class="form-control" placeholder="Serial Number">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-map-pin"></i></span>
-										</div>
+									<div class="form-group">
+										<label>MAC Address</label>
 										<input type="text" id="e_macaddress" name="e_macaddress" class="form-control" placeholder="MAC Address">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-map-marked"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Alokasi</label>
 										<input type="text" id="e_alokasi" name="e_alokasi" class="form-control" placeholder="Alokasi">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-address-card"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Penanggung Jawab</label>
 										<input type="text" id="e_penanggungjawab" name="e_penanggungjawab" class="form-control" placeholder="Penanggung Jawab">
 									</div>
 
@@ -366,10 +316,8 @@
 										<input type="file" id="e_foto" name="e_foto" class="form-control" placeholder="Penanggung Jawab">
 									</div>
 
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text"><i class="fas fa-cogs"></i></span>
-										</div>
+									<div class="form-group">
+										<label>Keterangan</label>
 										<textarea type="text" id="e_keterangan" name="e_keterangan" class="form-control" placeholder="Keterangan"></textarea>
 									</div>
 								</div>
